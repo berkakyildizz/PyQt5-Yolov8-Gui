@@ -91,10 +91,11 @@ First, install `pyinstaller` by running the following command:
 
 ```sh
 pip install pyinstaller
+```
 
 After installing pyinstaller, enter the terminal and run:
 
 ```sh
 pyinstaller main.spec
-
+```
 
