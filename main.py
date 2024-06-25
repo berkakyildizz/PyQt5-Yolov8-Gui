@@ -97,18 +97,18 @@ class DatabaseManager():
     def connect(self):
         try:
             if not self.connected:
-                server = '10.161.112.70'
-                database = 'AIDATA'
-                username = 'majorskt'
-                password = 'gargara'
+                server = 'server_ip'
+                database = 'database_name'
+                username = 'username'
+                password = 'password'
                 driver = 'ODBC Driver 17 for SQL Server'
                 connection_string = f"mssql+pyodbc://{username}:{password}@{server}/{database}?driver={driver}"
                 self.engine = create_engine(
                     connection_string,
-                    pool_size=20,  # Varsayılan değeri artırın
-                    max_overflow=40,  # Varsayılan değeri artırın
-                    pool_timeout=30,  # Zaman aşımı süresini gerektiğinde artırın
-                    pool_recycle=1800  # Bağlantıların geri dönüşüm süresini ayarlayın
+                    pool_size=20,  
+                    max_overflow=40,  
+                    pool_timeout=30,  
+                    pool_recycle=1800  
                 )
                 self.connected = True
                 logging.info("Database connected")
@@ -235,7 +235,7 @@ class CameraThread(QtCore.QThread):
                         detected_dict = {
                             'Tespit Edilme Saati': datetime.strptime(tespit_zamani, "%Y-%m-%d %H:%M:%S"),
                             'Tespit Durumu': tespit_durumu,
-                            'ID': 2  # Güncellenecek kaydın ID'si
+                            'ID': 2  
                         }
                         db_thread = DatabaseThread(detected_dict, self.db_manager)
                         db_thread.start()
@@ -254,9 +254,9 @@ class CameraThread(QtCore.QThread):
                 else:
                     logging.warning("Cannot read frame from camera")
                     self.stop()
-                    self.retry_connection() # Frame alınmazsa tekrar bağlantı kur
+                    self.retry_connection() 
             self.cap.release()
-            self.processing_frames = False  # Indicate that processing is done
+            self.processing_frames = False  
         except Exception as e:
             logging.error(f"Error in CameraThread: {e}")
             if self.cap:
@@ -326,7 +326,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.model_box.addItems(['yolov8n', 'yolov8m', 'yolov8l', 'yolov8x'])
             self.model_box.currentTextChanged.connect(self.change_model)
 
-            self.camera_box.addItems(['rtsp://admin:admin1admin1@192.168.1.108:554/cam/realmonitor?channel=1&subtype=0'])
+            self.camera_box.addItems(['your_rtsp_ip'])
 
             self.open_camera.clicked.connect(self.start_camera)
             self.stop_camera.clicked.connect(self.stop_camera_stream)
