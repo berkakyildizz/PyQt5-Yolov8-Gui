@@ -27,9 +27,18 @@
 
 <h4>
   To run this project, you must first have Python and pip installed on your computer.
-  To download this project, you can use the 'git clone' command as follows:
+  To download this project, you can use the `git clone` command as follows:
 </h4>
 
 ```sh
-git clone https://github.com/berkakyildizz/PyQt5-Yolov8-Gui.git
+https://github.com/berkakyildizz/PyQt5-Yolov8-Gui.git
+```
+<h4>
+  After downloading the project files and installing the required libraries, you can start the GUI by running the following command
+</h4>
 
+```sh
+pip install -r requirements.txt
+pip install onnx
+pip install onnxruntime-gpu
+```
