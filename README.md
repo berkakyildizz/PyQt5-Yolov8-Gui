@@ -14,6 +14,4 @@
   Since it is difficult to find such properly working interfaces in the market, I am sharing my own project with you. Of course, the project has shortcomings and these will be improved in the future. If you would like to contribute please feel free to do so.
 </h4>
 
-<h4>
-  ![](https://github.com/berkakyildizz/PyQt5-Yolov8_Gui/gif.gif)
-</h4>
+![](https://github.com/berkakyildizz/PyQt5-Yolov8-Gui/blob/main/gif.gif?raw=true)
