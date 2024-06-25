@@ -89,11 +89,11 @@ python main.py
   To convert the program to an exe file you must:
 
   ```python
-  pip install pyinstaller```
+  pip install pyinstaller
 
 After pyinstaller install, enter the terminal:
 
 python```
-pyinstaller main.spec```
+pyinstaller main.spec
 </h4>
 
