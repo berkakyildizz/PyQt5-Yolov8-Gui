@@ -1,5 +1,10 @@
 # PyQt5-Yolov8-Onnx-Gui
 
+[![Model 1](https://img.shields.io/badge/Model%201-Download-brightgreen)](https://drive.google.com/file/d/1eCX7RFXoYOAbkrxWQopf7kRasvAFTZPV/view?usp=drive_link)
+[![Model 2](https://img.shields.io/badge/Model%202-Download-brightgreen)](https://drive.google.com/file/d/1aR6F0mMLgyb8wof3fgfEe-wbZIuFEvwW/view?usp=drive_link)
+[![Model 3](https://img.shields.io/badge/Model%203-Download-brightgreen)](https://drive.google.com/file/d/1oIZzHVXNa1h7_oCoaCXisfGQPgNxfqAH/view?usp=drive_link)
+[![Model 4](https://img.shields.io/badge/Model%204-Download-brightgreen)](https://drive.google.com/file/d/1OULaYUwwkUDFBBIgwRJiz5YIAj3tyv8t/view?usp=drive_link)
+
 <h4>
   This repo is specially prepared for users who want to run onnx models. The program still has shortcomings and these can be improved. However, if you want to contribute to development, I wouldn't say no. I would be pleased.
 
