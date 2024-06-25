@@ -104,3 +104,9 @@ After installing pyinstaller, enter the terminal and run:
 pyinstaller main.spec
 ```
 
+## Use
+
+<h4>
+  After determining the iou, conf and model in this program, you can start the IP camera you wrote and perform detection operations using the onnx models. I decided to publish such a repo due to the optimization difficulties of Onnx models and the fact that they are      slightly different from models with .pt extension. If you like it, please don't forget to star!
+
+</h4>
