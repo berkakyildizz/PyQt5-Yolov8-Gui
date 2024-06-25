@@ -85,14 +85,10 @@ python main.py
 ```
 ## Deploy
 
-<h4>
-  To convert the program to an exe file you must:
+#### To convert the program to an exe file you must:
 
-  ```
-  pip install pyinstaller```
+First, install `pyinstaller` by running the following command:
 
-# After pyinstaller install, enter the terminal:
-
-  ```pyinstaller main.spec```
-</h4>
+```sh
+pip install pyinstaller
 
