@@ -91,9 +91,8 @@ python main.py
   ```python
   pip install pyinstaller
 
-After pyinstaller install, enter the terminal:
+# After pyinstaller install, enter the terminal:
 
-python```
 pyinstaller main.spec
 </h4>
 
