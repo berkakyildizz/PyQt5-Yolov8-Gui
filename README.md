@@ -38,7 +38,49 @@ https://github.com/berkakyildizz/PyQt5-Yolov8-Gui.git
 </h4>
 
 ```sh
+conda install pytorch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 pytorch-cuda=11.8 -c pytorch -c nvidia
+# After 
 pip install -r requirements.txt
 pip install onnx
 pip install onnxruntime-gpu
 ```
+<h4>
+  If CUDA is not installed on your computer, it will run on CPU models and you can see it as CPUExecutionProvider in the interface. However, if you install CUDA and cudnn, you can run it via CUDAExecutionProvider. My suggestion is to use CUDA.
+  I am using CUDA 11.8, cudnn 8.9.2 versions. You can download and install them from the NVIDIA official website.
+</h4>
+
+## Run
+
+<h4>
+  First, if you have a database and want to record the findings, you will need to make a few changes. If you do not have a database connection, you can run and use the code by canceling the DatabaseManager part.
+
+  `server = 'server_ip'
+   database = 'database_name'
+   username = 'username'
+   password = 'password'`
+   
+   You must fill these values ​​with your own database values ​​in the `DatabaseManager` class in the code block.
+   After that, 
+
+   `self.camera_box.addItems(['your_rtsp_ip'])`
+
+   You have to add own rtsp adresses in camera_box. For example: 'rtsp://admin:admin1admin1@192.168.1.108:554/cam/realmonitor?channel=1&subtype=1'
+
+   Then you need to give your own url path to camera_url in the start_camera function in the MainWindow class.
+
+   `camera_url = 'enter_rtsp_addresses'`
+
+    The changes you will make to adapt it to yourself are over.
+</h4>
+
+<h4>
+  After downloading the project files and installing the required libraries, you can start the GUI by running the following command:
+</h4>
+
+```sh
+python main.py
+```
+
+<h4>
+  
+</h4>
