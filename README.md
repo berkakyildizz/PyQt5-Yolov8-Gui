@@ -15,3 +15,11 @@
 </h4>
 
 ![](https://github.com/berkakyildizz/PyQt5-Yolov8-Gui/blob/main/gif.gif?raw=true)
+
+![](https://github.com/berkakyildizz/PyQt5-Yolov8-Gui/icon/aaaaaaa.png)
+
+
+<h4>
+  Since it is a program that I am currently distributing, it works and works. I will write down all the changes you need to make in the code. This will save you from a huge burden.
+</h4>
+
