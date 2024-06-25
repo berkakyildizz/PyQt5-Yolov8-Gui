@@ -1,1 +1,1 @@
-# PyQt5-Yolov8-Gui
+# PyQt5-Yolov8-Onnx-Gui
