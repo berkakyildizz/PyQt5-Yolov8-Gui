@@ -83,4 +83,17 @@ password = 'password'
 ```sh
 python main.py
 ```
+## Deploy
+
+<h4>
+  To convert the program to an exe file you must:
+
+  ```python
+  pip install pyinstaller```
+
+After pyinstaller install, enter the terminal:
+
+python```
+pyinstaller main.spec```
+</h4>
 
