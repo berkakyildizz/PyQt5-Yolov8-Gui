@@ -23,3 +23,13 @@
   Since it is a program that I am currently distributing, it works and works. I will write down all the changes you need to make in the code. This will save you from a huge burden.
 </h4>
 
+## Installation
+
+<h4>
+  To run this project, you must first have Python and pip installed on your computer.
+  To download this project, you can use the 'git clone' command as follows:
+</h4>
+
+```sh
+git clone https://github.com/berkakyildizz/PyQt5-Yolov8-Gui.git
+
