@@ -16,7 +16,7 @@
 
 ![](https://github.com/berkakyildizz/PyQt5-Yolov8-Gui/blob/main/gif.gif?raw=true)
 
-![](https://github.com/berkakyildizz/PyQt5-Yolov8-Gui/icon/aaaaaaa.png)
+![](https://github.com/berkakyildizz/PyQt5-Yolov8-Gui/blob/main/icon/aaaaaaa.png?raw=true)
 
 
 <h4>
