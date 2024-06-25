@@ -54,10 +54,12 @@ pip install onnxruntime-gpu
 <h4>
   First, if you have a database and want to record the findings, you will need to make a few changes. If you do not have a database connection, you can run and use the code by canceling the DatabaseManager part.
 
-  `server = 'server_ip'\n
-   database = 'database_name'\n
-   username = 'username'\n
-   password = 'password'\n`
+```python
+server = 'server_ip'
+database = 'database_name'
+username = 'username'
+password = 'password'
+```
    
    You must fill these values ​​with your own database values ​​in the `DatabaseManager` class in the code block.
    After that, 
