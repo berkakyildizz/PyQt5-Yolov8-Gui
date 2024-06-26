@@ -17,11 +17,9 @@ PyQt5==5.15.10
 PyQt5-Qt5==5.15.2
 PyQt5-sip==12.13.0
 pywin32-ctypes==0.2.2
-setuptools==69.5.1
 sip==6.7.12
 six==1.16.0
 SQLAlchemy==2.0.30
 tomli==2.0.1
 typing_extensions==4.12.2
-wheel==0.43.0
 zipp==3.19.2
