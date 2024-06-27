@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'yeni_gui3.ui'
+# Form implementation generated from reading ui file 'yeni_gui2.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
         self.camera_label.setText("")
         self.camera_label.setObjectName("camera_label")
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(50, 30, 649, 121))
+        self.layoutWidget.setGeometry(QtCore.QRect(50, 30, 621, 121))
         self.layoutWidget.setObjectName("layoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
 "    padding: 10px;\n"
 "    border-radius: 15px;\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
 "    color: black;\n"
 "    font: bold 14px \'Arial\';\n"
@@ -53,7 +53,7 @@ class Ui_MainWindow(object):
 "    padding: 10px;\n"
 "    border-radius: 15px;\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
 "    color: black;\n"
 "    font: bold 14px \'Arial\';\n"
@@ -72,7 +72,7 @@ class Ui_MainWindow(object):
 "    padding: 10px;\n"
 "    border-radius: 15px;\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
 "    color: black;\n"
 "    font: bold 14px \'Arial\';\n"
@@ -91,7 +91,7 @@ class Ui_MainWindow(object):
 "    padding: 10px;\n"
 "    border-radius: 15px;\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
 "    color: black;\n"
 "    font: bold 14px \'Arial\';\n"
@@ -116,7 +116,7 @@ class Ui_MainWindow(object):
 "    padding: 10px;\n"
 "    border-radius: 15px;\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
 "    color: black;\n"
 "    font: bold 14px \'Arial\';\n"
@@ -135,7 +135,7 @@ class Ui_MainWindow(object):
 "    padding: 10px;\n"
 "    border-radius: 15px;\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
 "    color: black;\n"
 "    font: bold 14px \'Arial\';\n"
@@ -150,7 +150,7 @@ class Ui_MainWindow(object):
 "    padding: 10px;\n"
 "    border-radius: 15px;\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
 "    color: black;\n"
 "    font: bold 14px \'Arial\';\n"
@@ -168,7 +168,7 @@ class Ui_MainWindow(object):
 "    padding: 10px;\n"
 "    border-radius: 15px;\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
 "    color: black;\n"
 "    font: bold 14px \'Arial\';\n"
@@ -189,7 +189,7 @@ class Ui_MainWindow(object):
 "    padding: 10px;\n"
 "    border-radius: 15px;\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
 "    color: black;\n"
 "    font: bold 14px \'Arial\';\n"
@@ -233,7 +233,7 @@ class Ui_MainWindow(object):
         self.model_box.setObjectName("model_box")
         self.gridLayout_2.addWidget(self.model_box, 0, 1, 1, 1)
         self.layoutWidget3 = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget3.setGeometry(QtCore.QRect(691, 500, 361, 81))
+        self.layoutWidget3.setGeometry(QtCore.QRect(691, 430, 361, 81))
         self.layoutWidget3.setObjectName("layoutWidget3")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.layoutWidget3)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -243,7 +243,7 @@ class Ui_MainWindow(object):
 "    padding: 10px;\n"
 "    border-radius: 15px;\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
 "    color: black;\n"
 "    font: bold 14px \'Arial\';\n"
@@ -252,7 +252,7 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton#open_camera:hover {\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #e0e0e0, stop: 1 #b0b0b0);\n"
 "}\n"
 "")
@@ -263,7 +263,7 @@ class Ui_MainWindow(object):
 "    padding: 10px;\n"
 "    border-radius: 15px;\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
 "    color: black;\n"
 "    font: bold 14px \'Arial\';\n"
@@ -272,7 +272,7 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton#stop_camera:hover {\n"
 "    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
+"        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
 "        stop: 0 #e0e0e0, stop: 1 #b0b0b0);\n"
 "}\n"
 "")
@@ -286,106 +286,32 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.kamera_sec = QtWidgets.QLabel(self.layoutWidget4)
         self.kamera_sec.setStyleSheet("QLabel#kamera_sec {\n"
-"    padding: 10px;\n"
-"    border-radius: 15px;\n"
-"    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
-"        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
-"    color: black;\n"
-"    font: bold 14px \'Arial\';\n"
-"    text-align: center;\n"
-"}\n"
-"")
+                                      "    padding: 10px;\n"
+                                      "    border-radius: 15px;\n"
+                                      "    background: qlineargradient(\n"
+                                      "        spread: pad, x1:0, y1:0, x2:1, y2:1,\n"
+                                      "        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
+                                      "    color: black;\n"
+                                      "    font: bold 14px \'Arial\';\n"
+                                      "    text-align: center;\n"
+                                      "}\n"
+                                      "")
         self.kamera_sec.setAlignment(QtCore.Qt.AlignCenter)
         self.kamera_sec.setObjectName("kamera_sec")
         self.horizontalLayout_3.addWidget(self.kamera_sec)
-        self.camera_box = QtWidgets.QComboBox(self.layoutWidget4)
-        self.camera_box.setStyleSheet("QComboBox#camera_box {\n"
-"    padding: 5px;\n"
-"    border: 1px solid #b0b0b0;\n"
-"    border-radius: 5px;\n"
-"    background-color: #f0f0f0;\n"
-"    color: black;\n"
-"    font: 14px \'Arial\';\n"
-"}\n"
-"\n"
-"QComboBox#camera_box::drop-down {\n"
-"    subcontrol-origin: padding;\n"
-"    subcontrol-position: top right;\n"
-"    width: 15px;\n"
-"    border-left: 1px solid #b0b0b0;\n"
-"}\n"
-"\n"
-"QComboBox#camera_box::down-arrow {\n"
-"    image: url(down_arrow.png); /* İstediğiniz ok işareti resmi */\n"
-"    width: 10px;\n"
-"    height: 10px;\n"
-"}\n"
-"\n"
-"QComboBox#camera_box QAbstractItemView {\n"
-"    border: 1px solid #b0b0b0;\n"
-"    background-color: #ffffff;\n"
-"    selection-background-color: #d0d0d0;\n"
-"    selection-color: black;\n"
-"    padding: 5px;\n"
-"}\n"
-"")
-        self.camera_box.setObjectName("camera_box")
-        self.horizontalLayout_3.addWidget(self.camera_box)
-        self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(691, 431, 361, 38))
-        self.widget.setObjectName("widget")
-        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.widget)
-        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
-        self.kamera_sec_2 = QtWidgets.QLabel(self.widget)
-        self.kamera_sec_2.setStyleSheet("QLabel#kamera_sec_2 {\n"
-"    padding: 10px;\n"
-"    border-radius: 15px;\n"
-"    background: qlineargradient(\n"
-"        spread: pad, x1:0, y1:0, x2:1, y2:1, \n"
-"        stop: 0 #b0b0b0, stop: 1 #e0e0e0);\n"
-"    color: black;\n"
-"    font: bold 14px \'Arial\';\n"
-"    text-align: center;\n"
-"}\n"
-"")
-        self.kamera_sec_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.kamera_sec_2.setObjectName("kamera_sec_2")
-        self.horizontalLayout_4.addWidget(self.kamera_sec_2)
-        self.kamer_sec_line = QtWidgets.QLineEdit(self.widget)
-        self.kamer_sec_line.setStyleSheet("QLineEdit#kamera_sec_line {\n"
-"    padding: 5px;\n"
-"    border: 1px solid #b0b0b0;\n"
-"    border-radius: 5px;\n"
-"    background-color: #f0f0f0;\n"
-"    color: black;\n"
-"    font: 14px \'Arial\';\n"
-"}\n"
-"\n"
-"QLineEdit#kamera_sec_line::drop-down {\n"
-"    subcontrol-origin: padding;\n"
-"    subcontrol-position: top right;\n"
-"    width: 15px;\n"
-"    border-left: 1px solid #b0b0b0;\n"
-"}\n"
-"\n"
-"QLineEdit#kamera_sec_line::down-arrow {\n"
-"    image: url(down_arrow.png); /* İstediğiniz ok işareti resmi */\n"
-"    width: 10px;\n"
-"    height: 10px;\n"
-"}\n"
-"\n"
-"QLineEdit#kamera_sec_line QAbstractItemView {\n"
-"    border: 1px solid #b0b0b0;\n"
-"    background-color: #ffffff;\n"
-"    selection-background-color: #d0d0d0;\n"
-"    selection-color: black;\n"
-"    padding: 5px;\n"
-"}\n"
-"")
-        self.kamer_sec_line.setObjectName("kamer_sec_line")
-        self.horizontalLayout_4.addWidget(self.kamer_sec_line)
+        self.camera_line = QtWidgets.QLineEdit(self.layoutWidget4)
+        self.camera_line.setStyleSheet("QLineEdit#camera_line {\n"
+                                       "    padding: 5px;\n"
+                                       "    border: 1px solid #b0b0b0;\n"
+                                       "    border-radius: 5px;\n"
+                                       "    background-color: #f0f0f0;\n"
+                                       "    color: black;\n"
+                                       "    font: 14px \'Arial\';\n"
+                                       "}\n"
+                                       )
+        self.camera_line.setObjectName("camera_line")
+        self.horizontalLayout_3.addWidget(self.camera_line)
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -403,5 +329,4 @@ class Ui_MainWindow(object):
         self.choose_model.setText(_translate("MainWindow", "Choose Model"))
         self.open_camera.setText(_translate("MainWindow", "Open Camera"))
         self.stop_camera.setText(_translate("MainWindow", "Stop Camera"))
-        self.kamera_sec.setText(_translate("MainWindow", "Choose camera"))
-        self.kamera_sec_2.setText(_translate("MainWindow", "Enter Camera Ip"))
+        self.kamera_sec.setText(_translate("MainWindow", "Choose Camera"))
