@@ -2,18 +2,18 @@ import sys
 import cv2
 import time
 from PyQt5 import QtCore, QtGui, QtWidgets
-from ui.new_gui import Ui_MainWindow
+from PyQt5.QtWidgets import QMessageBox
+from ui.new_gui3 import Ui_MainWindow
 from sqlalchemy import create_engine, text
 from datetime import datetime
 import logging
 import queue
 from onnxmodules.yolov8onnx import YOLOv8
 
-# Logging configuration
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     handlers=[
-                        logging.FileHandler("yeni.log"),
+                        logging.FileHandler("new.log"),
                         logging.StreamHandler()
                     ])
 
@@ -43,7 +43,6 @@ class LatestFrame:
             return id_tmp, frame_tmp
         except queue.Empty:
             logging.error("Error LatestFrame get function.")
-
 
 class DatabaseThread(QtCore.QThread):
     def __init__(self, detected_dict, db_manager):
@@ -88,7 +87,7 @@ class DatabaseThread(QtCore.QThread):
     def log_thread_finished(self):
         logging.info("DatabaseThread successfully finished.")
 
-class DatabaseManager():
+class DatabaseManager:
     def __init__(self):
         super().__init__()
         self.engine = None
@@ -97,18 +96,18 @@ class DatabaseManager():
     def connect(self):
         try:
             if not self.connected:
-                server = 'server_ip'
-                database = 'database_name'
-                username = 'username'
-                password = 'password'
+                server = '10.161.112.70'
+                database = 'AIDATA'
+                username = 'majorskt'
+                password = 'gargara'
                 driver = 'ODBC Driver 17 for SQL Server'
                 connection_string = f"mssql+pyodbc://{username}:{password}@{server}/{database}?driver={driver}"
                 self.engine = create_engine(
                     connection_string,
-                    pool_size=20,  
-                    max_overflow=40,  
-                    pool_timeout=30,  
-                    pool_recycle=1800  
+                    pool_size=20,  # Varsayılan değeri artırın
+                    max_overflow=40,  # Varsayılan değeri artırın
+                    pool_timeout=30,  # Zaman aşımı süresini gerektiğinde artırın
+                    pool_recycle=1800  # Bağlantıların geri dönüşüm süresini ayarlayın
                 )
                 self.connected = True
                 logging.info("Database connected")
@@ -177,6 +176,7 @@ class CameraThread(QtCore.QThread):
     change_pixmap_signal = QtCore.pyqtSignal(QtGui.QImage)
     update_fps_signal = QtCore.pyqtSignal(float)
     update_person_count_signal = QtCore.pyqtSignal(int)
+    error_signal = QtCore.pyqtSignal(str)  # Add signal for errors
 
     def __init__(self, source, yolo_model, latest_frame, db_manager):
         super().__init__()
@@ -198,21 +198,16 @@ class CameraThread(QtCore.QThread):
     def run(self):
         try:
             logging.info("CameraThread started")
-            start_time = time.time()
             self.cap = cv2.VideoCapture(self.source)
-            end_time = time.time()
-            logging.info(f"Camera access time: {end_time - start_time:.2f} seconds")
-
             if not self.cap.isOpened():
-                try:
-                    logging.error("Failed to open camera")
-                    self.retry_connection()
-                    return
-                except Exception as e:
-                    logging.error(f"Kamera tekrar açılamadı: {e}")
+                logging.error("Failed to open camera initially")
+                self.error_signal.emit("Failed to open camera initially. Please check the camera connection.")
+                return
+
             self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
             self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 640)
             self.running = True
+
             while not self.isInterruptionRequested():
                 ret, frame = self.cap.read()
                 if ret:
@@ -235,7 +230,7 @@ class CameraThread(QtCore.QThread):
                         detected_dict = {
                             'Tespit Edilme Saati': datetime.strptime(tespit_zamani, "%Y-%m-%d %H:%M:%S"),
                             'Tespit Durumu': tespit_durumu,
-                            'ID': 2  
+                            'ID': 2  # Güncellenecek kaydın ID'si
                         }
                         db_thread = DatabaseThread(detected_dict, self.db_manager)
                         db_thread.start()
@@ -254,11 +249,17 @@ class CameraThread(QtCore.QThread):
                 else:
                     logging.warning("Cannot read frame from camera")
                     self.stop()
-                    self.retry_connection() 
+                    if not self.retry_connection():
+                        logging.error("Failed to reconnect to camera")
+                        self.error_signal.emit("Failed to reconnect to camera. Please check the camera connection.")
+                        break
+
             self.cap.release()
-            self.processing_frames = False  
+            self.processing_frames = False  # Indicate that processing is done
+
         except Exception as e:
             logging.error(f"Error in CameraThread: {e}")
+            self.error_signal.emit(str(e))
             if self.cap:
                 self.cap.release()
 
@@ -271,25 +272,32 @@ class CameraThread(QtCore.QThread):
             logging.error(f"Error in CameraThread.stop: {e}")
 
     def retry_connection(self):
-        try:
-            while not self.running:
+        retry_count = 0
+        max_retry_duration = 20  # seconds
+        start_time = time.time()
+
+        while time.time() - start_time < max_retry_duration:
+            try:
                 logging.info("Attempting to reconnect to camera...")
-                self.cap.release()
+                if self.cap:
+                    self.cap.release()
                 time.sleep(2)
                 self.cap = cv2.VideoCapture(self.source)
-                self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-                self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 640)
                 if self.cap.isOpened():
                     logging.info("Reconnected to camera")
-                    self.running = True
-                    break
+                    return True
                 else:
-                    logging.warning("Failed to reconnect to camera")
-        except Exception as e:
-            logging.error(f"Error in CameraThread.retry_connection: {e}")
+                    logging.warning(f"Failed to reconnect to camera (attempt {retry_count + 1})")
+                    retry_count += 1
+            except Exception as e:
+                logging.error(f"Error in CameraThread.retry_connection: {e}")
+
+        logging.error("Failed to reconnect to camera after maximum retry duration. Please check the camera connection.")
+        return False
 
     def log_thread_finished(self):
         logging.info("CameraThread successfully finished.")
+
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     stop_signal = QtCore.pyqtSignal()
@@ -326,8 +334,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.model_box.addItems(['yolov8n', 'yolov8m', 'yolov8l', 'yolov8x'])
             self.model_box.currentTextChanged.connect(self.change_model)
 
-            self.camera_box.addItems(['your_rtsp_ip'])
-
             self.open_camera.clicked.connect(self.start_camera)
             self.stop_camera.clicked.connect(self.stop_camera_stream)
         except Exception as e:
@@ -363,14 +369,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def start_camera(self):
         try:
             if self.camera_thread is None:
-                camera_source = self.camera_box.currentText()
-                camera_url = 'rtsp://admin:admin1admin1@192.168.1.108:554/cam/realmonitor?channel=1&subtype=1'
-                '''if camera_source == '0':
-                    camera_url = 0
-                else:
-                    camera_url = camera_source'''
-
-                self.camera_thread = CameraThread(camera_url, self.yolo_model, self.latest_frame, self.db_manager)
+                camera_source = self.camera_line.text()
+                if camera_source.isdigit():
+                    camera_source = int(camera_source)
+                self.camera_thread = CameraThread(camera_source, self.yolo_model, self.latest_frame, self.db_manager)
+                self.camera_thread.error_signal.connect(self.show_error_message)  # Connect error signal to slot
                 time.sleep(0.2)
                 self.camera_thread.change_pixmap_signal.connect(self.update_image)
                 self.camera_thread.update_fps_signal.connect(self.update_fps)
@@ -471,6 +474,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def format_provider(self, provider_value):
         return f"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">PROVİDER</span></p><hr/><p align=\"center\"><span style=\" font-size:12pt;\">{provider_value}</span></p></body></html>"
+
     def format_fps(self, fps_value):
         return f"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Fps</span></p><hr/><p align=\"center\"><span style=\" font-size:12pt;\">{fps_value}</span></p></body></html>"
 
@@ -479,6 +483,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def format_person(self, person_value):
         return f"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Detection Person</span></p><hr/><p align=\"center\"><span style=\" font-size:12pt;\">{person_value}</span></p></body></html>"
+
+    def show_error_message(self, message):
+        self.stop_camera_stream()  # Ensure all threads are terminated
+        msg_box = QMessageBox()
+        msg_box.setIcon(QMessageBox.Critical)
+        msg_box.setText(message)
+        msg_box.setWindowTitle("Camera Connection Error")
+        msg_box.exec_()
 
 try:
     if __name__ == "__main__":
