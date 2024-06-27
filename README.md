@@ -69,14 +69,12 @@ password = 'password'
    
    You must fill these values ​​with your own database values ​​in the `DatabaseManager` class in the code block.
    After that, 
-
-   `self.camera_box.addItems(['your_rtsp_ip'])`
-
-   You have to add own rtsp adresses in camera_box. For example: 'rtsp://admin:admin1admin1@192.168.1.108:554/cam/realmonitor?channel=1&subtype=1'
+   
+   You have to add own rtsp adresses in Choose Camera Line. For example: 'rtsp://admin:admin1admin1@192.168.1.108:554/cam/realmonitor?channel=1&subtype=1'
 
    Then you need to give your own url path to camera_url in the start_camera function in the MainWindow class.
 
-   `camera_url = 'enter_rtsp_addresses'`
+   `Choose Camera = 'enter_rtsp_addresses'`
 
     The changes you will make to adapt it to yourself are over.
 </h4>
